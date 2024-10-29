@@ -25,7 +25,9 @@ sbBook.AppendLine(header);
 for (int i = 0; i < 200; i++)
 {
    var chapterwords = _seeder.LatinWords(_seeder.Next(2,5));
-   var chapter = $"Chapter {i+1}: {string.Join(" ", chapterwords)}";
+   var chapterTitle = string.Join(" ", chapterwords);
+   chapterTitle = char.ToUpper(chapterTitle[0]) + chapterTitle.Substring(1);
+   var chapter = $"Chapter {i+1}: {chapterTitle}";
    sbBook.AppendLine($"{chapter}\n\n");
 
    var lsenteces = _seeder.LatinSentences(_seeder.Next(4,50));
